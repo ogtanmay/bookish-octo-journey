@@ -1,37 +1,61 @@
-# GrindOS
+# GrindOS (Flutter)
 
-GrindOS is a futuristic productivity operating system style app built with React + Vite and packaged for Android with Capacitor.
+GrindOS is a futuristic gamified productivity operating system app built with **Flutter + Dart**.
 
-## Local development
+## Stack
+- Flutter (Dart)
+- Riverpod state management
+- Firebase service layer (offline-safe initialization)
+- Hive + SQLite offline-first local storage
+- Lottie + Rive animation support
+- Glassmorphism AMOLED dashboard UI
 
-```bash
-npm install
-npm run dev
+## Project architecture
+
+```text
+lib/
+ ├── core/
+ ├── screens/
+ ├── widgets/
+ ├── animations/
+ ├── focus_mode/
+ ├── gamification/
+ ├── ai/
+ ├── services/
+ ├── models/
+ └── utils/
 ```
 
-## Build web app
+## Run locally
 
 ```bash
-npm run build
+flutter pub get
+flutter run
 ```
 
-## Build Android debug APK locally
+## Validate
 
 ```bash
-npm run android:apk
+flutter analyze
+flutter test
+```
+
+## Build Android APK
+
+```bash
+flutter build apk --release
 ```
 
 APK output:
 
-`android/app/build/outputs/apk/debug/app-debug.apk`
+`build/app/outputs/flutter-apk/app-release.apk`
 
-## Download APK from GitHub Actions workflow
+## Download link via workflows
 
-1. Open **Actions** tab in this repository.
-2. Run **Build Android APK** workflow (or wait for it on push to `main`).
-3. Open the workflow run.
-4. Download artifact **grindos-android-apk**.
-
-Direct workflow page:
+Workflow page:
 
 `https://github.com/ogtanmay/bookish-octo-journey/actions/workflows/android-apk.yml`
+
+Latest run page (artifact appears as **grindos-android-apk**):
+
+`https://github.com/ogtanmay/bookish-octo-journey/actions/runs/25953626403`

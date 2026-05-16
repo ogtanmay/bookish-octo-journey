@@ -14,36 +14,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Prepare Android platform files
+        run: |
+          if [ ! -d android ]; then
+            flutter create --platforms android --project-name grindos --org com.grindos .
+          fi
 
       - name: Install dependencies
-        run: npm ci
+        run: flutter pub get
 
-      - name: Build web app
-        run: npm run build
+      - name: Analyze
+        run: flutter analyze
 
-      - name: Sync Capacitor Android
-        run: npx cap sync android
+      - name: Run tests
+        run: flutter test
 
-      - name: Build debug APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
+      - name: Build release APK
+        run: flutter build apk --release
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: grindos-android-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
