@@ -56,6 +56,6 @@ Workflow page:
 
 `https://github.com/ogtanmay/bookish-octo-journey/actions/workflows/android-apk.yml`
 
-Latest run page (artifact appears as **grindos-android-apk**):
+Latest runs page (artifact appears as **grindos-android-apk** after an approved successful run):
 
-`https://github.com/ogtanmay/bookish-octo-journey/actions/runs/25953626403`
+`https://github.com/ogtanmay/bookish-octo-journey/actions/workflows/android-apk.yml?query=event%3Apush`
