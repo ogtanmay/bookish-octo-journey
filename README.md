@@ -1,16 +1,37 @@
-# React + Vite
+# GrindOS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GrindOS is a futuristic productivity operating system style app built with React + Vite and packaged for Android with Capacitor.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build web app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Build Android debug APK locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run android:apk
+```
+
+APK output:
+
+`android/app/build/outputs/apk/debug/app-debug.apk`
+
+## Download APK from GitHub Actions workflow
+
+1. Open **Actions** tab in this repository.
+2. Run **Build Android APK** workflow (or wait for it on push to `main`).
+3. Open the workflow run.
+4. Download artifact **grindos-android-apk**.
+
+Direct workflow page:
+
+`https://github.com/ogtanmay/bookish-octo-journey/actions/workflows/android-apk.yml`
