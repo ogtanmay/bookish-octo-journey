@@ -281,7 +281,7 @@ function App() {
                 <span key={day.id} style={{ height: `${day.value}%` }} />
               ))}
             </div>
-            <p>Projected rank: AIR 3,4xx if consistency remains above 82%</p>
+            <p>Projected rank: AIR ~3.4k if consistency remains above 82%</p>
           </article>
 
           <article className="glass card quote">
